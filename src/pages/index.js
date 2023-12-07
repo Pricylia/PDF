@@ -10,9 +10,25 @@ const personalizacao = {
  },
 }
 
-const recuperarConteudoParaPDF = () => document.getElementById('conteudo');
+const tabelaEstilo = {
+  border: '1px solid black',
+  padding: '8px',
+  fontSize: '10px', // Reduza o tamanho da fonte
+  lineHeight: '1', // Reduza a altura da linha
+};
 
 export default function Home() {
+  const cabecalho = (
+    <thead>
+      <th style={{ border: '1px solid black' }}>INSTITUTO FEDERAL DO PIAUI</th>
+      <th style={{ border: '1px solid black' }}>CAMPUS TERESINA CENTRAL</th>
+    </thead>
+  );
+
+const recuperarConteudoParaPDF = () => document.getElementById('conteudo')
+const espacoVazio = <tr><td colSpan="2" style={{ height: '10px' }}></td></tr>;
+const espacoVazioTabelas = <tr><td colSpan="2" style={{ height: '50px' }}></td></tr>;
+
   return (
     <>
       <Head>
@@ -25,57 +41,169 @@ export default function Home() {
       <button onClick={() => generatePDF(recuperarConteudoParaPDF, personalizacao)}>Gerar PDF</button>
       
       <div id="conteudo">
-        <h1 style={{textAlign: 'center', color: 'black', fontSize: '25px'}}>
-          Ficha Esxicata
-        </h1>
-
-        {/* Adicione a tabela abaixo da Ficha Esxicata */}
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-          <thead>
-            <th style={{ border: '1px solid black' }}>INSTITUTO FEDERAL DO PIAUI</th>
-            <th style={{ border: '1px solid black' }}>CAMPUS TERESINA CENTRAL</th>
-          </thead>
-        </table>
-
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
             <tbody>
-            <tr>
-                <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>FAMILIA:</td>
+              <tr>
+              <td style={{ width: '50%', verticalAlign: 'top' }}>
+                  <table style={{ width: '95%', borderCollapse: 'collapse' }}>
+                  {cabecalho}
+                  {espacoVazio}
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>FAMILIA:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>NOME CIENTIFICO:</td>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>NOME CIENTIFICO:</td>
               </tr>
               <tr>
-                <td style={{ border: '1px solid black', padding: '12px', fontSize: '12px' }}>DETERMINADOR:</td>
-                <td style={{ border: '1px solid black', padding: '12px', fontSize: '12px', width: '30%' }}>DATA DA DET.:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>DETERMINADOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '30%' }}>DATA DA DET.:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>NOME VULGAR:</td>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>NOME VULGAR:</td>
               </tr>
               <tr>
-                <td style={{ border: '1px solid black', padding: '12px', fontSize: '12px'}}>HÁBITO DE CRESCIMENTO:</td>
-                <td style={{ border: '1px solid black', padding: '12px', fontSize: '12px'}}>COR DA FLOR, BRACTEA OU ESPORÓFORO:</td>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>HÁBITO DE CRESCIMENTO:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>AMBIENTE:</td>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>COR DA FLOR, BRACTEA OU ESPORÓFORO:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>LUGAR DE COLETA:</td>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>AMBIENTE:</td>
               </tr>
               <tr>
-                <td style={{ border: '1px solid black', padding: '12px'}}></td>
-                <td style={{ border: '1px solid black', padding: '12px', fontSize: '12px' }}>DATA DA COLETA:</td>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>LUGAR DE COLETA:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>COLETOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>COLETOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '38%' }}>DATA DA COLETA:</td>
               </tr>
               <tr>
-              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '12px', textAlign: 'left'}}>OBS.:</td>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>OBS.:</td>
+              </tr>
+                  </table>
+                </td>
+                <td style={{ width: '50%', verticalAlign: 'top' }}>
+                  <table style={{ width: '95%', borderCollapse: 'collapse' }}>
+                  {cabecalho}
+                  {espacoVazio}
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>FAMILIA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>NOME CIENTIFICO:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>DETERMINADOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '30%' }}>DATA DA DET.:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>NOME VULGAR:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>HÁBITO DE CRESCIMENTO:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>COR DA FLOR, BRACTEA OU ESPORÓFORO:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>AMBIENTE:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>LUGAR DE COLETA:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>COLETOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '38%' }}>DATA DA COLETA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>OBS.:</td>
+              </tr>
+                  </table>
+                </td>
+              </tr>
+              {espacoVazioTabelas}
+              <tr>
+              <td style={{ width: '50%', verticalAlign: 'top' }}>
+                  <table style={{ width: '95%', borderCollapse: 'collapse' }}>
+                  {cabecalho}
+                  {espacoVazio}
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>FAMILIA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>NOME CIENTIFICO:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>DETERMINADOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '30%' }}>DATA DA DET.:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>NOME VULGAR:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>HÁBITO DE CRESCIMENTO:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>COR DA FLOR, BRACTEA OU ESPORÓFORO:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>AMBIENTE:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>LUGAR DE COLETA:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>COLETOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '38%' }}>DATA DA COLETA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>OBS.:</td>
+              </tr>
+                  </table>
+                </td>
+                <td style={{ width: '50%', verticalAlign: 'top' }}>
+                  <table style={{ width: '95%', borderCollapse: 'collapse' }}>
+                  {cabecalho}
+                  {espacoVazio}
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>FAMILIA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>NOME CIENTIFICO:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>DETERMINADOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '30%' }}>DATA DA DET.:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>NOME VULGAR:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>HÁBITO DE CRESCIMENTO:</td>
+              </tr>
+              <tr>
+                <td colSpan="2" style={{ border: '1px solid black', padding: '10px', fontSize: '10px', textAlign: 'left'}}>COR DA FLOR, BRACTEA OU ESPORÓFORO:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>AMBIENTE:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>LUGAR DE COLETA:</td>
+              </tr>
+              <tr>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px' }}>COLETOR:</td>
+                <td style={{ border: '1px solid black', padding: '12px', fontSize: '10px', width: '38%' }}>DATA DA COLETA:</td>
+              </tr>
+              <tr>
+              <td colSpan="2" style={{ border: '1px solid black', padding: '12px', fontSize: '10px', textAlign: 'left'}}>OBS.:</td>
+              </tr>
+                  </table>
+                </td>
               </tr>
             </tbody>
           </table>
          </div>
       </main>
     </>
-  )
-}
+  );
+  }
